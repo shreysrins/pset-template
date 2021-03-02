@@ -1,0 +1,36 @@
+\NeedsTeXFormat{TeX 3.14159265}[2021/03/01 2017/Debian]
+\ProvidesPackage{pset}[2021/03/01 Spring21]
+
+\RequirePackage[margin=1in]{geometry}
+\RequirePackage{amsmath, amssymb, amsthm}
+\RequirePackage{hyperref}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{problem}{Problem}
+\theoremstyle{remark}
+\newtheorem*{example}{Example}
+\newtheorem*{solution}{Solution}
+
+\makeatletter
+\newenvironment{subtheorem}[1]{%
+	\def\subtheoremcounter{#1}%
+	\refstepcounter{#1}%
+	\protected@edef\theparentnumber{\csname the#1\endcsname}%
+	\setcounter{parentnumber}{\value{#1}}%
+	\setcounter{#1}{0}%
+	\expandafter\def\csname the#1\endcsname{\theparentnumber.\Alph{#1}}%
+	% To keep hyperref happy, update H-counter as well
+	\expandafter\def\csname theH#1\endcsname{thm.\theparentnumber.\Alph{#1}}%
+	\unskip\ignorespaces
+}{%
+	\setcounter{\subtheoremcounter}{\value{parentnumber}}%
+	\ignorespacesafterend
+}
+\makeatother
+\newcounter{parentnumber}
+
+\author{Shreyas V. Srinivasan}
+\thanks{Collaborators: none.}
