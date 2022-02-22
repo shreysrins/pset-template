@@ -1,17 +1,21 @@
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
-\ProvidesPackage{pset}[2021/03/01 Spring21]
+\ProvidesPackage{pset}[2022/02/21 Spring22]
 
 \RequirePackage[margin=1in]{geometry}
 \RequirePackage{amsmath, amssymb, amsthm}
 \RequirePackage{bbm}
 \RequirePackage{hyperref}
 \RequirePackage[shortlabels]{enumitem}
+\RequirePackage{fancyhdr}
+\RequirePackage{graphicx}
+\RequirePackage{authblk}
 
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}
 \newtheorem{theorem}{Theorem}
 \newtheorem{proposition}{Proposition}
 \newtheorem{problem}{Problem}
+\newtheorem{question}{Question}
 \theoremstyle{remark}
 \newtheorem*{example}{Example}
 \newtheorem*{solution}{Solution}
@@ -36,5 +40,12 @@
 
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
 
-\author{Shreyas V. Srinivasan}
-\thanks{Collaborators: none.}
+\author[1]{}
+\affil[1]{}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{}
+\rhead{}
+\lfoot{}
+\rfoot{Page \thepage}
